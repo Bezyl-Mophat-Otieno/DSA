@@ -1,16 +1,13 @@
-// [1,4,8,12] => 20 . Check from the array the numbers that when added returns 20 and return their indexes as an array .
-
+// Example :
+// nums [1,5,30,8]
+// target : 6
 const twoSum = (nums, target) => {
-  const obj = {};
-
-  for (let i = 0; i < nums.length; i++) {
-    let n = nums[0];
-    if (obj[target - n] >= 0) {
-      return [obj[target - n], i];
-    } else {
-      obj[n] = i;
+  for (let i = 0; i < nums.length; ++i) {
+    for (let j = i + 1; j < nums.length; ++j) {
+      if (nums[i] + nums[j] === target) return [i, j];
     }
   }
+  return "No match found";
 };
 
-console.log(twoSum([1, 4, 8, 12], 20));
+console.log(twoSum([1, 5, 30, 8], 35));
